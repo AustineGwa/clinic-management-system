@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="686.0" prefWidth="1119.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.AdminController">
+   <center>
+      <AnchorPane prefHeight="706.0" prefWidth="824.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane layoutX="35.0" layoutY="23.0" prefHeight="616.0" prefWidth="1070.0" style="-fx-background-color: coral;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Patients">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="587.0" prefWidth="646.0">
+                           <children>
+                              <TextField fx:id="studentName" layoutX="58.0" layoutY="90.0" promptText="Name" />
+                              <TextField fx:id="studentRegNum" layoutX="58.0" layoutY="145.0" promptText="Reg Number" />
+                              <TextField fx:id="studentYear" layoutX="58.0" layoutY="190.0" promptText="year of study" />
+                              <TextArea fx:id="studentSymptoms" layoutX="284.0" layoutY="90.0" prefHeight="170.0" prefWidth="240.0" promptText="Enter the symptoms" />
+                              <DatePicker fx:id="date" layoutX="58.0" layoutY="236.0" prefHeight="25.0" prefWidth="151.0" promptText="Date" />
+                              <Label layoutX="58.0" layoutY="42.0" prefHeight="17.0" prefWidth="179.0" text="Please enter the patient's Details" />
+                              <Label layoutX="284.0" layoutY="42.0" prefHeight="17.0" prefWidth="179.0" text="Enter symptoms" />
+                              <Button fx:id="btnSubmit" layoutX="453.0" layoutY="541.0" mnemonicParsing="false" onAction="#onSubmitPatientButtonClicked" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: blue;" text="SUBMIT" textFill="#f8f1f1" />
+                              <Pane fx:id="prescriptionPane" layoutX="58.0" layoutY="306.0" prefHeight="217.0" prefWidth="473.0" style="-fx-background-color: silver;">
+                                 <children>
+                                    <Label layoutX="64.0" layoutY="6.0" text="Prescription" />
+                                    <TextArea fx:id="diseasePrescription" layoutX="14.0" layoutY="68.0" prefHeight="117.0" prefWidth="444.0" promptText="Enter the prescription" />
+                                    <TextField fx:id="possibleDisease" layoutX="14.0" layoutY="32.0" prefHeight="34.0" prefWidth="149.0" promptText="Possible disease" />
+                                 </children>
+                              </Pane>
+                              <TableView fx:id="patientsTable" layoutX="570.0" layoutY="55.0" prefHeight="522.0" prefWidth="492.0">
+                                <columns>
+                                  <TableColumn fx:id="nameColumn" prefWidth="75.0" text="Name" />
+                                  <TableColumn fx:id="regNumColumn" prefWidth="75.0" text="Reg Num" />
+                                    <TableColumn fx:id="yearColumn" prefWidth="75.0" text="year" />
+                                    <TableColumn fx:id="symptomsColumn" prefWidth="112.0" text="symptoms" />
+                                    <TableColumn fx:id="diseaseColumn" prefWidth="73.0" text="disease" />
+                                    <TableColumn fx:id="prescriptionColumn" prefWidth="76.0" text="prescription" />
+                                </columns>
+                              </TableView>
+                              <Button fx:id="btnRefresh" layoutX="338.0" layoutY="541.0" mnemonicParsing="false" onAction="#refreshPatientTable" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: blue;" text="REFRESH" textFill="#f2f0f0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="Doctors">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TableView fx:id="doctorsTable" layoutX="371.0" layoutY="41.0" prefHeight="465.0" prefWidth="599.0">
+                                <columns>
+                                  <TableColumn fx:id="doctorNameColumn" prefWidth="75.0" text="Name" />
+                                  <TableColumn fx:id="doctorIdColumn" prefWidth="173.0" text="ID" />
+                                    <TableColumn fx:id="doctorSpecializationColumn" prefWidth="221.0" text="specialization" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="503.0" layoutY="14.0" text="View all the  pharmacists with  all their specifications" textFill="#ebd915" />
+                              <Label layoutX="79.0" layoutY="50.0" text="Add new  Doc" />
+                              <Pane layoutX="55.0" layoutY="96.0" prefHeight="237.0" prefWidth="196.0">
+                                 <children>
+                                    <TextField fx:id="doctorName" promptText="name" />
+                                    <TextField fx:id="doctorId" layoutY="50.0" promptText="ID" />
+                                    <TextField fx:id="doctorSpecialization" layoutY="107.0" promptText="specialization" />
+                                    <Button fx:id="btnSubmitDoctor" layoutY="177.0" mnemonicParsing="false" onAction="#onSubmitDoctorButtonClicked" prefHeight="25.0" prefWidth="148.0" text="Add" />
+                                 </children>
+                              </Pane>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="Reports">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="438.0" layoutY="22.0" text="REPORTS GENERATOR" textAlignment="CENTER" textFill="#892be8">
+                                 <font>
+                                    <Font size="39.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="374.0" layoutY="91.0" text="Use this tab  to generate  reports about  the  clinic and print or share  with the other  management" textAlignment="CENTER" />
+                              <Button fx:id="weeklyPatients" layoutX="502.0" layoutY="185.0" mnemonicParsing="false" onAction="#onWeeklyPatientsButtonClicked" prefHeight="55.0" prefWidth="115.0" text="All weekly Patients" />
+                              <Button fx:id="currentMedics" layoutX="728.0" layoutY="185.0" mnemonicParsing="false" onAction="#onCurrentMedicsButtonClicked" prefHeight="55.0" prefWidth="114.0" text="All Current medics" />
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Settings">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Management" />
+                <MenuItem mnemonicParsing="false" text="Layout" />
+            </items>
+          </Menu>
+
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>
